@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce; //force of the jump
     public float gravityModifier; //gravitiy
     public bool isOnGround = true; //if rigid body is on ground or not flag
+    public bool gameOver = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,14 @@ public class PlayerController : MonoBehaviour
     //if rigid body is in collision or not
     private void OnCollisionEnter(Collision collision)
     {
-        isOnGround = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+        }else if(collision.gameObject.CompareTag("Obstacle"))
+        {
+            gameOver = true;
+            Debug.Log("game over");
+        }
     }
 
 }
