@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //if space pressed it will jump
-       if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+       if (Input.GetKeyDown(KeyCode.Space) && isOnGround && !gameOver)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
         {
             gameOver = true;
             Debug.Log("game over");
+            playerAnim.SetBool("Death_b", true);
+            playerAnim.SetInteger("DeathType_int", 1);
         }
     }
 
