@@ -639,7 +639,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100066, guid: 4a7c3ad7168bb834b87a91e3f94ad3d6, type: 3}
       propertyPath: m_Name
-      value: SimplePeople_Man_Punk_Brown
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 4a7c3ad7168bb834b87a91e3f94ad3d6, type: 3}
       propertyPath: m_RootOrder

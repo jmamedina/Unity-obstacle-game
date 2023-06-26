@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb; //get the rigid body of the player
+    private Animator playerAnim; //get the animator of the player
+
     public float jumpForce; //force of the jump
     public float gravityModifier; //gravitiy
     public bool isOnGround = true; //if rigid body is on ground or not flag
@@ -15,6 +17,10 @@ public class PlayerController : MonoBehaviour
     {
         //get the component rigid body
         playerRb = GetComponent<Rigidbody>();
+
+        //get the component animator
+        playerAnim = GetComponent<Animator>();
+
         //modify players gravity
         Physics.gravity *= gravityModifier;
     }
@@ -27,6 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
+            playerAnim.SetTrigger("Jump_trig");
         }
 
     }
